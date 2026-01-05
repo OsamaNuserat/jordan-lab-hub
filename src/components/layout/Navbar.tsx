@@ -2,19 +2,20 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Services", path: "/services" },
-  { name: "Why Choose Us", path: "/why-choose-us" },
-  { name: "Contact", path: "/contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState<"en" | "ar">("en");
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.services"), path: "/services" },
+    { name: t("nav.whyChoose"), path: "/why-choose-us" },
+    { name: t("nav.contact"), path: "/contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 nav-blur border-b border-border">
@@ -26,8 +27,8 @@ const Navbar = () => {
               <span className="text-primary-foreground font-heading font-bold text-lg">M</span>
             </div>
             <div className="hidden sm:block">
-              <p className="font-heading font-semibold text-foreground">Medical Lab</p>
-              <p className="text-xs text-muted-foreground">Precision Diagnostics</p>
+              <p className="font-heading font-semibold text-foreground">{t("nav.labName")}</p>
+              <p className="text-xs text-muted-foreground">{t("nav.tagline")}</p>
             </div>
           </Link>
 
@@ -55,14 +56,14 @@ const Navbar = () => {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
             >
               <Globe className="w-4 h-4" />
-              <span>{lang === "en" ? "AR" : "EN"}</span>
+              <span>{lang === "en" ? "العربية" : "English"}</span>
             </button>
             <a href="tel:+962-6-000-0000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
               <span>+962 6 000 0000</span>
             </a>
             <Button asChild>
-              <Link to="/contact">Get in Touch</Link>
+              <Link to="/contact">{t("nav.getInTouch")}</Link>
             </Button>
           </div>
 
@@ -104,7 +105,7 @@ const Navbar = () => {
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 >
                   <Globe className="w-4 h-4" />
-                  <span>{lang === "en" ? "AR" : "EN"}</span>
+                  <span>{lang === "en" ? "العربية" : "English"}</span>
                 </button>
               </div>
             </div>

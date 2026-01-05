@@ -13,50 +13,60 @@ import {
   Clock,
   MapPin
 } from "lucide-react";
-
-const reasons = [
-  {
-    icon: ShieldCheck,
-    title: "ISO Accredited Laboratory",
-    description: "Our laboratory meets international quality standards, ensuring reliable and accurate results you can trust.",
-  },
-  {
-    icon: Timer,
-    title: "Fast Turnaround Time",
-    description: "Most test results are available within 24-48 hours, helping you and your healthcare provider make timely decisions.",
-  },
-  {
-    icon: Stethoscope,
-    title: "Expert Medical Team",
-    description: "Board-certified pathologists and experienced laboratory technicians with years of expertise in diagnostic testing.",
-  },
-  {
-    icon: Microscope,
-    title: "Advanced Technology",
-    description: "State-of-the-art diagnostic equipment and automated systems ensure precise and consistent results.",
-  },
-  {
-    icon: Users,
-    title: "Patient-Centered Care",
-    description: "A comfortable, welcoming environment with compassionate staff dedicated to your well-being.",
-  },
-  {
-    icon: Award,
-    title: "15+ Years of Experience",
-    description: "Over a decade of trusted service to patients and healthcare providers across Jordan.",
-  },
-];
-
-const commitments = [
-  "Accuracy guaranteed with quality control protocols",
-  "Confidential handling of all patient information",
-  "Affordable pricing with transparent costs",
-  "Convenient location in central Amman",
-  "Extended operating hours for your convenience",
-  "Partnership with leading healthcare providers",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhyChooseUs = () => {
+  const { t } = useLanguage();
+
+  const reasons = [
+    {
+      icon: ShieldCheck,
+      titleKey: "whyPage.isoAccredited",
+      descKey: "whyPage.isoAccreditedDesc",
+    },
+    {
+      icon: Timer,
+      titleKey: "whyPage.fastTurnaround",
+      descKey: "whyPage.fastTurnaroundDesc",
+    },
+    {
+      icon: Stethoscope,
+      titleKey: "whyPage.expertTeam",
+      descKey: "whyPage.expertTeamDesc",
+    },
+    {
+      icon: Microscope,
+      titleKey: "whyPage.advancedTech",
+      descKey: "whyPage.advancedTechDesc",
+    },
+    {
+      icon: Users,
+      titleKey: "whyPage.patientCentered",
+      descKey: "whyPage.patientCenteredDesc",
+    },
+    {
+      icon: Award,
+      titleKey: "whyPage.experience",
+      descKey: "whyPage.experienceDesc",
+    },
+  ];
+
+  const commitments = [
+    "whyPage.commitment1",
+    "whyPage.commitment2",
+    "whyPage.commitment3",
+    "whyPage.commitment4",
+    "whyPage.commitment5",
+    "whyPage.commitment6",
+  ];
+
+  const stats = [
+    { value: "15+", labelKey: "whyPage.yearsExp" },
+    { value: "50,000+", labelKey: "whyPage.testsYear" },
+    { value: "100+", labelKey: "whyPage.testTypes" },
+    { value: "99%", labelKey: "whyPage.satisfaction" },
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -64,14 +74,13 @@ const WhyChooseUs = () => {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Why Choose Us
+              {t("whyPage.badge")}
             </span>
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              Excellence in Every Test
+              {t("whyPage.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Discover why thousands of patients and healthcare providers in Jordan 
-              trust Medical Lab Name for their diagnostic needs.
+              {t("whyPage.description")}
             </p>
           </div>
         </div>
@@ -83,17 +92,17 @@ const WhyChooseUs = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reasons.map((reason) => (
               <div
-                key={reason.title}
+                key={reason.titleKey}
                 className="p-6 md:p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 card-shadow hover:card-shadow-hover"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <reason.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
-                  {reason.title}
+                  {t(reason.titleKey)}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  {reason.description}
+                  {t(reason.descKey)}
                 </p>
               </div>
             ))}
@@ -105,17 +114,12 @@ const WhyChooseUs = () => {
       <section className="py-20 md:py-28 bg-hero-gradient">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "15+", label: "Years of Experience" },
-              { value: "50,000+", label: "Tests Per Year" },
-              { value: "100+", label: "Test Types Available" },
-              { value: "99%", label: "Patient Satisfaction" },
-            ].map((stat) => (
-              <div key={stat.label}>
+            {stats.map((stat) => (
+              <div key={stat.labelKey}>
                 <p className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-2">
                   {stat.value}
                 </p>
-                <p className="text-primary-foreground/70">{stat.label}</p>
+                <p className="text-primary-foreground/70">{t(stat.labelKey)}</p>
               </div>
             ))}
           </div>
@@ -128,21 +132,19 @@ const WhyChooseUs = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                Our Commitment
+                {t("whyPage.commitmentBadge")}
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
-                Your Health is Our Priority
+                {t("whyPage.commitmentTitle")}
               </h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                At Medical Lab Name, we go beyond just providing test results. 
-                We're committed to supporting your healthcare journey with 
-                excellence at every step.
+                {t("whyPage.commitmentDesc")}
               </p>
               <ul className="space-y-3">
-                {commitments.map((commitment) => (
-                  <li key={commitment} className="flex items-start gap-3">
+                {commitments.map((commitmentKey) => (
+                  <li key={commitmentKey} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-foreground">{commitment}</span>
+                    <span className="text-foreground">{t(commitmentKey)}</span>
                   </li>
                 ))}
               </ul>
@@ -150,28 +152,28 @@ const WhyChooseUs = () => {
 
             <div className="bg-secondary/50 rounded-3xl p-8 md:p-10">
               <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
-                Visit Us Today
+                {t("whyPage.visitTitle")}
               </h3>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary mt-0.5" />
                   <div>
-                    <p className="font-medium text-foreground">Location</p>
-                    <p className="text-sm text-muted-foreground">123 Medical District, Amman, Jordan</p>
+                    <p className="font-medium text-foreground">{t("whyPage.location")}</p>
+                    <p className="text-sm text-muted-foreground">{t("cta.address")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-primary mt-0.5" />
                   <div>
-                    <p className="font-medium text-foreground">Working Hours</p>
-                    <p className="text-sm text-muted-foreground">Sat-Thu: 7AM-9PM | Fri: 8AM-2PM</p>
+                    <p className="font-medium text-foreground">{t("whyPage.workingHours")}</p>
+                    <p className="text-sm text-muted-foreground">{t("whyPage.workingHoursVal")}</p>
                   </div>
                 </div>
               </div>
               <Button size="lg" className="w-full" asChild>
                 <Link to="/contact">
-                  Contact Us
-                  <ArrowRight className="w-4 h-4" />
+                  {t("cta.contactUs")}
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </Button>
             </div>
