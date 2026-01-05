@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -13,6 +13,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState<"en" | "ar">("en");
   const location = useLocation();
 
   return (
@@ -49,6 +50,13 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            >
+              <Globe className="w-4 h-4" />
+              <span>{lang === "en" ? "AR" : "EN"}</span>
+            </button>
             <a href="tel:+962-6-000-0000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
               <span>+962 6 000 0000</span>
@@ -86,11 +94,18 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 mt-2 border-t border-border">
+              <div className="pt-4 mt-2 border-t border-border flex items-center justify-between">
                 <a href="tel:+962-6-000-0000" className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
                   <Phone className="w-4 h-4" />
                   <span>+962 6 000 0000</span>
                 </a>
+                <button
+                  onClick={() => setLang(lang === "en" ? "ar" : "en")}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>{lang === "en" ? "AR" : "EN"}</span>
+                </button>
               </div>
             </div>
           </div>
