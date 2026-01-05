@@ -12,9 +12,11 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,8 +33,8 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
+      title: t("contact.successTitle"),
+      description: t("contact.successDesc"),
     });
     
     setFormData({ name: "", email: "", phone: "", message: "" });
@@ -53,14 +55,13 @@ const Contact = () => {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Contact Us
+              {t("contact.badge")}
             </span>
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              Get in Touch
+              {t("contact.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Have questions about our services? We're here to help. 
-              Reach out to us through any of the channels below.
+              {t("contact.description")}
             </p>
           </div>
         </div>
@@ -73,7 +74,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div>
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-8">
-                Contact Information
+                {t("contact.infoTitle")}
               </h2>
               
               <div className="space-y-6 mb-10">
@@ -82,9 +83,9 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Address</h3>
-                    <p className="text-muted-foreground">123 Medical District</p>
-                    <p className="text-muted-foreground">Amman, Jordan</p>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">{t("contact.address")}</h3>
+                    <p className="text-muted-foreground">{t("contact.addressLine1")}</p>
+                    <p className="text-muted-foreground">{t("contact.addressLine2")}</p>
                   </div>
                 </div>
 
@@ -93,9 +94,9 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Phone</h3>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">{t("contact.phone")}</h3>
                     <a href="tel:+962-6-000-0000" className="text-primary hover:underline">+962 6 000 0000</a>
-                    <p className="text-sm text-muted-foreground mt-1">Available during working hours</p>
+                    <p className="text-sm text-muted-foreground mt-1">{t("contact.phoneAvailable")}</p>
                   </div>
                 </div>
 
@@ -104,9 +105,9 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Email</h3>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">{t("contact.email")}</h3>
                     <a href="mailto:info@medicallab.jo" className="text-primary hover:underline">info@medicallab.jo</a>
-                    <p className="text-sm text-muted-foreground mt-1">We respond within 24 hours</p>
+                    <p className="text-sm text-muted-foreground mt-1">{t("contact.emailResponse")}</p>
                   </div>
                 </div>
 
@@ -115,9 +116,9 @@ const Contact = () => {
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground mb-1">Working Hours</h3>
-                    <p className="text-muted-foreground">Saturday - Thursday: 7:00 AM - 9:00 PM</p>
-                    <p className="text-muted-foreground">Friday: 8:00 AM - 2:00 PM</p>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">{t("contact.workingHours")}</h3>
+                    <p className="text-muted-foreground">{t("contact.hours1")}</p>
+                    <p className="text-muted-foreground">{t("contact.hours2")}</p>
                   </div>
                 </div>
               </div>
@@ -126,8 +127,8 @@ const Contact = () => {
               <div className="rounded-2xl overflow-hidden bg-secondary h-64 flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
                   <MapPin className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                  <p>Map Location</p>
-                  <p className="text-sm">123 Medical District, Amman</p>
+                  <p>{t("contact.mapTitle")}</p>
+                  <p className="text-sm">{t("contact.addressLine1")}, {t("contact.addressLine2")}</p>
                 </div>
               </div>
             </div>
@@ -136,16 +137,16 @@ const Contact = () => {
             <div>
               <div className="bg-card rounded-2xl p-8 md:p-10 border border-border card-shadow">
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
-                  Send us a Message
+                  {t("contact.formTitle")}
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  {t("contact.formDesc")}
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Full Name
+                      {t("contact.fullName")}
                     </label>
                     <Input
                       id="name"
@@ -153,7 +154,7 @@ const Contact = () => {
                       type="text"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Enter your full name"
+                      placeholder={t("contact.fullNamePlaceholder")}
                       required
                       className="h-12"
                     />
@@ -161,7 +162,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
+                      {t("contact.emailAddress")}
                     </label>
                     <Input
                       id="email"
@@ -169,7 +170,7 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Enter your email address"
+                      placeholder={t("contact.emailPlaceholder")}
                       required
                       className="h-12"
                     />
@@ -177,7 +178,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number
+                      {t("contact.phoneNumber")}
                     </label>
                     <Input
                       id="phone"
@@ -185,21 +186,21 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Enter your phone number"
+                      placeholder={t("contact.phonePlaceholder")}
                       className="h-12"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Message
+                      {t("contact.message")}
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="How can we help you?"
+                      placeholder={t("contact.messagePlaceholder")}
                       required
                       rows={5}
                       className="resize-none"
@@ -208,10 +209,10 @@ const Contact = () => {
 
                   <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? (
-                      <>Sending...</>
+                      <>{t("contact.sending")}</>
                     ) : (
                       <>
-                        Send Message
+                        {t("contact.send")}
                         <Send className="w-4 h-4" />
                       </>
                     )}
@@ -220,7 +221,7 @@ const Contact = () => {
 
                 <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
                   <CheckCircle2 className="w-4 h-4 text-accent" />
-                  <span>We respect your privacy and never share your information.</span>
+                  <span>{t("contact.privacy")}</span>
                 </div>
               </div>
             </div>
