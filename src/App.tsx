@@ -20,7 +20,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter basename="/jordan-lab-hub/">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
