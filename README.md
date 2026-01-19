@@ -1,4 +1,7 @@
 # Jordan Lab Hub
+![Display Status](https://github.com/OsamaNuserat/jordan-lab-hub/actions/workflows/deploy.yml/badge.svg)
+
+
 
 A precision diagnostics laboratory management and information system based in Amman, Jordan.
 
