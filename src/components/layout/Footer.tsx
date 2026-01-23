@@ -10,7 +10,6 @@ const Footer = () => {
     { nameKey: "nav.about", path: "/about" },
     { nameKey: "nav.services", path: "/services" },
     { nameKey: "nav.whyChoose", path: "/why-choose-us" },
-    { nameKey: "nav.contact", path: "/contact" },
   ];
 
   const services = [
@@ -28,9 +27,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-lg">M</span>
-              </div>
+              <img src="/jordan-lab-hub/logo.png" alt="One Lab Logo" className="h-10 w-auto" />
               <div>
                 <p className="font-heading font-semibold">{t("nav.labName")}</p>
                 <p className="text-xs text-primary-foreground/60">{t("nav.tagline")}</p>
@@ -82,8 +79,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+962-6-000-0000" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  +962 6 000 0000
+                <a href="tel:+962786511175" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  +962 7 8651 1175
                 </a>
               </li>
               <li className="flex items-center gap-3">

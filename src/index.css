@@ -6,67 +6,67 @@
 
 @layer base {
   :root {
-    /* Medical Blue Palette */
-    --background: 210 50% 98%;
-    --foreground: 210 40% 15%;
+    /* Medical Red Palette - One Lab Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 15%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 15%;
+    --popover-foreground: 0 0% 10%;
 
-    /* Primary: Medical Blue */
-    --primary: 205 85% 45%;
+    /* Primary: One Lab Red */
+    --primary: 348 90% 55%; /* Vibrant Red */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 205 85% 95%;
-    --primary-dark: 205 85% 35%;
+    --primary-light: 348 90% 95%;
+    --primary-dark: 348 90% 40%;
 
-    /* Secondary: Soft Blue-Gray */
-    --secondary: 210 30% 95%;
-    --secondary-foreground: 210 40% 25%;
+    /* Secondary: Clean White/Gray */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 15% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent: Teal for trust */
-    --accent: 180 50% 40%;
+    /* Accent: Dark Gray/Black for contrast */
+    --accent: 0 0% 20%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 25% 90%;
-    --input: 210 25% 90%;
-    --ring: 205 85% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 348 90% 55%;
 
     --radius: 0.75rem;
 
     /* Custom Medical Tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(205, 85%, 45%) 0%, hsl(195, 75%, 50%) 100%);
-    --card-shadow: 0 4px 20px -2px hsl(210 30% 20% / 0.08);
-    --card-shadow-hover: 0 8px 30px -4px hsl(210 30% 20% / 0.12);
+    --hero-gradient: linear-gradient(135deg, hsl(348, 90%, 55%) 0%, hsl(348, 70%, 45%) 100%);
+    --card-shadow: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --card-shadow-hover: 0 8px 30px -4px hsl(348 90% 55% / 0.15);
     --nav-blur: blur(12px);
   }
 
   .dark {
-    --background: 210 40% 10%;
-    --foreground: 210 20% 95%;
-    --card: 210 35% 14%;
-    --card-foreground: 210 20% 95%;
-    --popover: 210 35% 14%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 205 80% 55%;
-    --primary-foreground: 210 40% 10%;
-    --secondary: 210 30% 18%;
-    --secondary-foreground: 210 20% 90%;
-    --muted: 210 25% 20%;
-    --muted-foreground: 210 15% 60%;
-    --accent: 180 50% 50%;
-    --accent-foreground: 210 40% 10%;
-    --border: 210 25% 22%;
-    --input: 210 25% 22%;
-    --ring: 205 80% 55%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 348 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 80%;
+    --accent-foreground: 0 0% 10%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 348 80% 55%;
   }
 }
 

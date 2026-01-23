@@ -3,6 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +22,33 @@ const Navbar = () => {
     { name: t("nav.about"), path: "/about" },
     { name: t("nav.services"), path: "/services" },
     { name: t("nav.whyChoose"), path: "/why-choose-us" },
-    { name: t("nav.contact"), path: "/contact" },
   ];
+
+  const PhonePopup = () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>
+            {t("nav.getInTouch")}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>{t("contact.title")}</DialogTitle>
+          <DialogDescription>
+            {lang === "ar" 
+              ? "للتواصل معنا، يرجى الاتصال على الرقم التالي:" 
+              : "To get in touch, please call us at:"}
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex items-center justify-center p-6">
+          <a href="tel:+962786511175" className="flex items-center gap-3 text-2xl font-bold text-primary hover:underline">
+             <Phone className="w-6 h-6" />
+             +962 7 8651 1175
+          </a>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 nav-blur border-b border-border">
@@ -23,9 +56,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-hero-gradient flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-lg">M</span>
-            </div>
+            <img src="/jordan-lab-hub/logo.png" alt="One Lab Logo" className="h-10 w-auto" />
             <div className="hidden sm:block">
               <p className="font-heading font-semibold text-foreground">{t("nav.labName")}</p>
               <p className="text-xs text-muted-foreground">{t("nav.tagline")}</p>
@@ -58,13 +89,7 @@ const Navbar = () => {
               <Globe className="w-4 h-4" />
               <span>{lang === "en" ? "العربية" : "English"}</span>
             </button>
-            <a href="tel:+962-6-000-0000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" />
-              <span>+962 6 000 0000</span>
-            </a>
-            <Button asChild>
-              <Link to="/contact">{t("nav.getInTouch")}</Link>
-            </Button>
+            <PhonePopup />
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -96,10 +121,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border flex items-center justify-between">
-                <a href="tel:+962-6-000-0000" className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
-                  <Phone className="w-4 h-4" />
-                  <span>+962 6 000 0000</span>
-                </a>
+                <PhonePopup />
                 <button
                   onClick={() => setLang(lang === "en" ? "ar" : "en")}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"

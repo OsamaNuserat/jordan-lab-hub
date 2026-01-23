@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
-import heroImage from "@/assets/hero-lab.jpg";
+import heroImage from "@/assets/hero-red.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
@@ -42,9 +42,6 @@ const HeroSection = () => {
                 {t("hero.viewServices")}
                 <ArrowRight className="w-5 h-5 rtl:rotate-180" />
               </Link>
-            </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/contact">{t("hero.contactUs")}</Link>
             </Button>
           </div>
 

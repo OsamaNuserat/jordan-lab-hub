@@ -6,76 +6,84 @@ import {
   Microscope, 
   TestTube,
   Dna,
-  Baby,
-  Pill,
   Shield,
-  Beaker
+  Beaker,
+  Utensils,
+  Timer,
+  Users
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Packages from "@/components/Packages";
 
 const Services = () => {
   const { t } = useLanguage();
 
   const services = [
     {
+      icon: Users,
+      titleKey: "servicesPage.premarital",
+      descKey: "servicesPage.premaritalDesc",
+      tests: [],
+    },
+    {
       icon: Droplets,
-      titleKey: "servicesPage.cbc",
-      descKey: "servicesPage.cbcDesc",
-      tests: ["Hemoglobin", "Hematocrit", "WBC Count", "Platelet Count", "RBC Indices"],
-    },
-    {
-      icon: Activity,
-      titleKey: "servicesPage.hormones",
-      descKey: "servicesPage.hormonesDesc",
-      tests: ["Thyroid Panel (T3, T4, TSH)", "Testosterone", "Estrogen", "Cortisol", "Prolactin"],
-    },
-    {
-      icon: Heart,
-      titleKey: "servicesPage.diabetes",
-      descKey: "servicesPage.diabetesDesc",
-      tests: ["Fasting Blood Glucose", "HbA1c", "Glucose Tolerance Test", "Insulin Levels", "Lipid Profile"],
-    },
-    {
-      icon: Dna,
-      titleKey: "servicesPage.pcr",
-      descKey: "servicesPage.pcrDesc",
-      tests: ["COVID-19 PCR", "Hepatitis Panel", "HIV Testing", "STD Screening", "Genetic Testing"],
-    },
-    {
-      icon: Microscope,
-      titleKey: "servicesPage.pathology",
-      descKey: "servicesPage.pathologyDesc",
-      tests: ["Tissue Biopsy", "Cytology", "Pap Smear", "Fine Needle Aspiration", "Histopathology"],
-    },
-    {
-      icon: TestTube,
-      titleKey: "servicesPage.urinalysis",
-      descKey: "servicesPage.urinalysisDesc",
-      tests: ["Complete Urinalysis", "Urine Culture", "Stool Analysis", "Occult Blood Test", "Parasitology"],
-    },
-    {
-      icon: Shield,
-      titleKey: "servicesPage.immunology",
-      descKey: "servicesPage.immunologyDesc",
-      tests: ["Allergy Panel", "Autoimmune Markers", "Immunoglobulins", "Rheumatoid Factor", "ANA Test"],
-    },
-    {
-      icon: Baby,
-      titleKey: "servicesPage.prenatal",
-      descKey: "servicesPage.prenatalDesc",
-      tests: ["Blood Type & Rh", "Prenatal Panel", "TORCH Screening", "Glucose Screening", "Genetic Screening"],
-    },
-    {
-      icon: Pill,
-      titleKey: "servicesPage.drugMonitoring",
-      descKey: "servicesPage.drugMonitoringDesc",
-      tests: ["Drug Levels", "Toxicology Screen", "Therapeutic Monitoring", "Medication Compliance"],
+      titleKey: "servicesPage.blood",
+      descKey: "servicesPage.bloodDesc",
+      tests: [],
     },
     {
       icon: Beaker,
       titleKey: "servicesPage.chemistry",
       descKey: "servicesPage.chemistryDesc",
-      tests: ["Liver Function", "Kidney Function", "Electrolytes", "Cholesterol Panel", "Cardiac Markers"],
+      tests: [],
+    },
+    {
+      icon: TestTube,
+      titleKey: "servicesPage.semen",
+      descKey: "servicesPage.semenDesc",
+      tests: [],
+    },
+    {
+      icon: Activity,
+      titleKey: "servicesPage.cancer",
+      descKey: "servicesPage.cancerDesc",
+      tests: [],
+    },
+    {
+      icon: Microscope,
+      titleKey: "servicesPage.histopathology",
+      descKey: "servicesPage.histopathologyDesc",
+      tests: [],
+    },
+    {
+      icon: Shield,
+      titleKey: "servicesPage.virology",
+      descKey: "servicesPage.virologyDesc",
+      tests: [],
+    },
+    {
+      icon: Timer,
+      titleKey: "servicesPage.coagulation",
+      descKey: "servicesPage.coagulationDesc",
+      tests: [],
+    },
+    {
+      icon: Activity, // Reusing Activity as it fits hormones too 
+      titleKey: "servicesPage.hormones",
+      descKey: "servicesPage.hormonesDesc",
+      tests: [],
+    },
+    {
+      icon: Dna,
+      titleKey: "servicesPage.genetics",
+      descKey: "servicesPage.geneticsDesc",
+      tests: [],
+    },
+    {
+      icon: Utensils,
+      titleKey: "servicesPage.foodSafety",
+      descKey: "servicesPage.foodSafetyDesc",
+      tests: [],
     },
   ];
 
@@ -126,7 +134,7 @@ const Services = () => {
                       {t(service.descKey)}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {service.tests.map((test) => (
+                      {service.tests.length > 0 && service.tests.map((test) => (
                         <span
                           key={test}
                           className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
@@ -142,6 +150,9 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Packages Section */}
+      <Packages />
 
       {/* Process Section */}
       <section className="py-20 md:py-28 bg-secondary/50">
