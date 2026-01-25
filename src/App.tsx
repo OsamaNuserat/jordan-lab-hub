@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import WhyChooseUs from "./pages/WhyChooseUs";
 import NotFound from "./pages/NotFound";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function App() {
               <Route path="/why-choose-us" element={<WhyChooseUs />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <WhatsAppButton />
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>
