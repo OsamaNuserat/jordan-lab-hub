@@ -1,4 +1,5 @@
 
+import whatsappLogo from "@/assets/whatsapp-svgrepo-com.svg";
 const WhatsAppButton = () => {
   const phoneNumber = "962786511175";
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
@@ -17,7 +18,7 @@ const WhatsAppButton = () => {
         
         {/* Logo Container */}
         <div className="relative bg-white rounded-full">
-          <img src="/jordan-lab-hub/src/assets/whatsapp-svgrepo-com.svg" alt="WhatsApp" className="w-14 h-14 md:w-16 md:h-16" />
+          <img src={whatsappLogo} alt="WhatsApp" className="w-14 h-14 md:w-16 md:h-16" />
         </div>
       </div>
     </a>
