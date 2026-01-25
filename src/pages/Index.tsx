@@ -4,6 +4,7 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyChoosePreview from "@/components/home/WhyChoosePreview";
 
 import HomeSampling from "@/components/home/HomeSampling";
+import InsuranceTicker from "@/components/home/InsuranceTicker";
 
 const Index = () => {
   return (
@@ -12,7 +13,8 @@ const Index = () => {
       <ServicesPreview />
       <HomeSampling />
       <WhyChoosePreview />
-      <WhyChoosePreview />
+      
+      <InsuranceTicker />
       
       {/* Map Section */}
       <section className="py-0">
