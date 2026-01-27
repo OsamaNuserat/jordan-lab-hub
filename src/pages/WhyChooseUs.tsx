@@ -171,10 +171,10 @@ const WhyChooseUs = () => {
                 </div>
               </div>
               <Button size="lg" className="w-full" asChild>
-                <Link to="/contact">
+                <a href="tel:+962786511175">
                   {t("cta.contactUs")}
                   <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                </Link>
+                </a>
               </Button>
             </div>
           </div>

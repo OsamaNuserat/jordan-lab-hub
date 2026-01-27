@@ -42,13 +42,13 @@ const HomeSampling = () => {
               ))}
             </div>
 
-            <Link
-              to="/contact"
+            <a
+              href="tel:+962786511175"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               <Calendar className="w-5 h-5" />
               {t("homeSampling.bookNow")}
-            </Link>
+            </a>
           </div>
 
           {/* Images */}

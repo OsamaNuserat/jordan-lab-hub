@@ -242,6 +242,12 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.privacy": "We respect your privacy and never share your information.",
     "contact.successTitle": "Message Sent!",
     "contact.successDesc": "Thank you for contacting us. We'll get back to you soon.",
+
+    // Insurance
+    "insurance.viewAll": "View All Insurance Partners",
+    "insurance.title": "Our Accredited Insurance Companies",
+    "insurance.pageTitle": "Insurance Partners",
+    "insurance.pageDesc": "We are proud to partner with leading insurance companies to provide the best medical services.",
   },
   ar: {
     // Navbar
@@ -475,6 +481,12 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.privacy": "نحترم خصوصيتك ولا نشارك معلوماتك أبداً.",
     "contact.successTitle": "تم إرسال الرسالة!",
     "contact.successDesc": "شكراً لتواصلك معنا. سنعود إليك قريباً.",
+
+    // Insurance
+    "insurance.viewAll": "عرض جميع شركات التأمين",
+    "insurance.title": "شركات التأمين المعتمدة",
+    "insurance.pageTitle": "شركاء التأمين",
+    "insurance.pageDesc": "نحن فخورون بالتعاون مع شركات التأمين الرائدة لتقديم أفضل الخدمات الطبية.",
   },
 };
 

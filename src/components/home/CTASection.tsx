@@ -28,12 +28,6 @@ const CTASection = () => {
                 {t("cta.callUs")}
               </a>
             </Button>
-            <Button size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
-              <Link to="/contact">
-                {t("cta.contactUs")}
-                <ArrowRight className="w-5 h-5 rtl:rotate-180" />
-              </Link>
-            </Button>
           </div>
 
           <div className="inline-flex items-center gap-2 text-primary-foreground/70">

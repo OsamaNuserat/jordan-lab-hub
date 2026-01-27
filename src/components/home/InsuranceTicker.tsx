@@ -1,4 +1,13 @@
-
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Import logos
@@ -35,34 +44,54 @@ const companies = [
 ];
 
 const InsuranceTicker = () => {
-  const { lang } = useLanguage();
+  const { t } = useLanguage();
 
   return (
-    <section className="py-12 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 mb-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
-          {lang === 'ar' ? 'شركات التامين المعتمده لدينا' : 'Our Accredited Insurance Companies'}
-        </h2>
-      </div>
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            {t("insurance.title")}
+            </h2>
+        </div>
       
-      <div className="relative w-full">
-        {/* Gradients for smooth fade effect at edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
-        
-        <div className="flex w-max animate-scroll flex-nowrap">
-          {[...companies, ...companies].map((company, index) => (
-            <div 
-              key={`${company.name}-${index}`} 
-              className="flex-shrink-0 flex items-center justify-center w-[150px] h-[80px] mx-8 transition-transform hover:scale-110 duration-300"
+        <div className="relative max-w-5xl mx-auto mb-10">
+            <Carousel
+                opts={{
+                    align: "center",
+                    loop: true,
+                }}
+                className="w-full"
             >
-              <img 
-                src={company.logo} 
-                alt={company.name} 
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
-          ))}
+                <CarouselContent className="-ml-4">
+                    {companies.map((company, index) => (
+                        <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                            <div className="p-1">
+                                <div className="flex items-center justify-center p-6 h-32 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-all duration-300">
+                                    <img 
+                                        src={company.logo} 
+                                        alt={company.name} 
+                                        className="max-w-full max-h-full object-contain mix-blend-multiply"
+                                    />
+                                </div>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <div className="hidden md:block">
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </div>
+            </Carousel>
+        </div>
+
+        <div className="text-center">
+            <Button variant="outline" asChild className="group">
+                <Link to="/insurance-partners">
+                    {t("insurance.viewAll")}
+                    <ArrowRight className="w-4 h-4 ml-2 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>

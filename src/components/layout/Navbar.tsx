@@ -3,14 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,31 +17,7 @@ const Navbar = () => {
     { name: t("nav.whyChoose"), path: "/why-choose-us" },
   ];
 
-  const PhonePopup = () => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button>
-            {t("nav.getInTouch")}
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>{t("contact.title")}</DialogTitle>
-          <DialogDescription>
-            {lang === "ar" 
-              ? "للتواصل معنا، يرجى الاتصال على الرقم التالي:" 
-              : "To get in touch, please call us at:"}
-          </DialogDescription>
-        </DialogHeader>
-        <div className="flex items-center justify-center p-6">
-          <a href="tel:+962786511175" className="flex items-center gap-3 text-2xl font-bold text-primary hover:underline">
-             <Phone className="w-6 h-6" />
-             +962 7 8651 1175
-          </a>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 nav-blur border-b border-border">
@@ -89,7 +58,11 @@ const Navbar = () => {
               <Globe className="w-4 h-4" />
               <span>{lang === "en" ? "العربية" : "English"}</span>
             </button>
-            <PhonePopup />
+            <Button asChild>
+              <a href="tel:+962786511175">
+                {t("nav.getInTouch")}
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -121,7 +94,11 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border flex items-center justify-between">
-                <PhonePopup />
+                <Button asChild>
+                  <a href="tel:+962786511175">
+                    {t("nav.getInTouch")}
+                  </a>
+                </Button>
                 <button
                   onClick={() => setLang(lang === "en" ? "ar" : "en")}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"

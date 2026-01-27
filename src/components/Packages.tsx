@@ -3,14 +3,7 @@ import { packages } from "@/data/packages";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Check, Tag, Activity, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+
 
 const Packages = () => {
   const { lang, t } = useLanguage();
@@ -82,30 +75,12 @@ const Packages = () => {
                 </div>
                 
                 <div className="mt-auto pt-6">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <Button className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-all" asChild>
+                        <a href="tel:+962786511175">
                             <Tag className="w-4 h-4" />
                             {t("packages.bookNow")}
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="sm:max-w-md">
-                        <DialogHeader>
-                          <DialogTitle>{t("packages.bookNow")}</DialogTitle>
-                          <DialogDescription>
-                            {lang === "ar" 
-                              ? "للحجز، يرجى التواصل معنا على الرقم التالي:" 
-                              : "To book this package, please contact us at:"}
-                          </DialogDescription>
-                        </DialogHeader>
-                        <div className="flex items-center justify-center p-6">
-                          <a href="tel:+962786511175" className="flex items-center gap-3 text-2xl font-bold text-primary hover:underline">
-                             <Phone className="w-6 h-6" />
-                             +962 7 8651 1175
-                          </a>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                        </a>
+                    </Button>
                 </div>
               </div>
             </div>

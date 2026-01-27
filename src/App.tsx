@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import WhyChooseUs from "./pages/WhyChooseUs";
+import InsurancePartners from "./pages/InsurancePartners";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -26,6 +27,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/why-choose-us" element={<WhyChooseUs />} />
+              <Route path="/insurance-partners" element={<InsurancePartners />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <WhatsAppButton />
